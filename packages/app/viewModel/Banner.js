@@ -1,3 +1,3 @@
-import { Post } from "./wordpress/Post";
+import Post from "./wordpress/Post";
 
-export class Banner extends Post {}
+export default class Banner extends Post {}

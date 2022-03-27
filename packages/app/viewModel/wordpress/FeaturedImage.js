@@ -1,4 +1,4 @@
-export class FeaturedImage {
+export default class FeaturedImage {
     constructor(rawData) {
         this.rawData = rawData;
     }

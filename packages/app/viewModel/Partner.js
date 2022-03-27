@@ -1,3 +1,3 @@
-import { Post } from "./wordpress/Post";
+import Post from "./wordpress/Post";
 
-export class Partner extends Post {}
+export default class Partner extends Post {}

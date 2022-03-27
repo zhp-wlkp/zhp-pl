@@ -41,7 +41,7 @@
           :thumbnail="tile.thumbnail || placeholder"
           :title="tile.title"
           :description="tile.description"
-          :to="urlParser(tile.to)"
+          :to="tile.to ? urlParser(tile.to) : ''"
           class="section-about-us__tile"
           :class="{
             'z-card--pictured': isOverlayed,
