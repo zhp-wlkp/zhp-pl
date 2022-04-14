@@ -39,7 +39,8 @@ jobs:
           asset_name: zhp-pl.zip
           asset_content_type: application/zip
       - name: Create details.json
-        run: echo "{ \"version\": \"$VERSION\", \"details_url\": \"${{ steps.create_release.outputs.html_url }}\",\"download_url\":\"${{ steps.upload-theme.outputs.browser_download_url }}\"  }" > details.json
+        run: |
+          echo "{ \"version\": \"$VERSION\", \"details_url\": \"${{ steps.create_release.outputs.html_url }}\",\"download_url\":\"${{ steps.upload-theme.outputs.browser_download_url }}\"  }" > details.json
 
       - name: Upload release details
         id: upload-details
