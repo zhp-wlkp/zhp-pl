@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile_build --tag zhp-pl:latest --build-arg THEME_VERSION=${VERSION}
+        run: docker build --file Dockerfile_build --tag zhp-pl:latest --build-arg THEME_VERSION=${VERSION} .
       - name: Extract theme
         run: docker run -v ${PWD}:/usr/dist zhp-pl:latest
       - name: Create Release
