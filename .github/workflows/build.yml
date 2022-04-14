@@ -15,7 +15,7 @@ jobs:
       UPDATE_DETAILS_URL: 'https://github.com/${{ github.repository }}/releases/latest/download/details.json'
     steps:
       - name: Set current version
-        run: echo "VERSION::$(date '+%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
+        run: echo "VERSION=$(date '+%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: |
