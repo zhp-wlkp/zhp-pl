@@ -7,11 +7,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  variables:
-      VERSION: 'date "+%Y.%m.%d.%H.%M.%S"'
+  
   build:
     name: Build 
     runs-on: ubuntu-latest  
+    env:
+      VERSION: 'date "+%Y.%m.%d.%H.%M.%S"'
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
