@@ -3,7 +3,7 @@ name: Build theme for WP sites
 on: 
   push:
     branches:
-      - master
+      - 02-fixing
   workflow_dispatch:
 
 jobs:
