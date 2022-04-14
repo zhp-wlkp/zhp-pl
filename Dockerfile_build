@@ -46,6 +46,7 @@ RUN cp -r packages/app/dist/wp-content/themes/zhp-pl/_nuxt packages/theme/ \
     && rm packages/theme/index.php \
     && mv packages/app/dist/index.html packages/theme/index.php \
     && sed -i "s/{VERSION}/${THEME_VERSION}/g" packages/theme/style.css \
+    && UPDATE_DETAILS_URL=$(echo $UPDATE_DETAILS_URL | sed -e 's/\//\\\//g') \
     && sed -i "s/{UPDATE_DETAILS_URL}/${UPDATE_DETAILS_URL}/g" packages/theme/functions.php
 
 # TODO: może da się jakąś pętlę zrobić?
