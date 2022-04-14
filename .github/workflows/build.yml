@@ -10,10 +10,12 @@ jobs:
   build:
     name: Build 
     runs-on: ubuntu-latest
+    variables:
+      VERSION: 'date "+%Y.%m.%d.%H.%M.%S"'
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile_build --tag zhp-pl:latest
+        run: docker build . --file Dockerfile_build --tag zhp-pl:latest --build-arg THEME_VERSION=${VERSION}
       - name: Extract theme
         run: docker run -v ${PWD}:/usr/dist zhp-pl:latest
       - name: Create Release
@@ -22,17 +24,30 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: $VERSION
+          release_name: Release $VERSION
           draft: false
           prerelease: false
       - name: Upload Theme
-        id: upload-release-asset 
+        id: upload-theme
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./zhp-pl.zip
           asset_name: zhp-pl.zip
           asset_content_type: application/zip
+      - name: Create details.json
+        run: echo "{ \"version\": \"$VERSION\", \"details_url\": \"${{ steps.create_release.outputs.html_url }}\",\"download_url\":\"${{ steps.upload-theme.outputs.browser_download_url }}\"  }" > details.json
+
+      - name: Upload release details
+        id: upload-details
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./details.json
+          asset_name: details.json
+          asset_content_type: application/json
