@@ -400,13 +400,13 @@ export default {
     const posts = postsRes.data
 
     // * get events for Przedsięwziecia i wydarzenia
+    if (homepage && homepage.rest_acf && homepage.rest_acf.event_categories) {
+      eventsParams.event_categories = homepage.rest_acf.event_categories.join(',')
+    }
     const eventsParams = {
       per_page: 25,
       page: 1,
       without_outdated: true
-    }
-    if (homepage.rest_acf.event_categories) {
-      eventsParams.event_categories = homepage.rest_acf.event_categories.join(',')
     }
     const eventsRes = await $axios.get('acf-events', { params: eventsParams })
     const events = eventsRes.data
@@ -468,7 +468,7 @@ export default {
         instagram.description;
     if (hasInstagram && !Object.keys(store.state.instagram.posts).length) {
       const instagramRes = await $axios.get('instagram')
-      const instagram = instagramRes.data
+      const instagram = instagramRes.data || ''
       const images = instagram.match(/href="(.+?)".+?data-full-res="(.+?)"/gm) || []
       const feed = images.map(match => (
         { href: match.match(/href="(.+?)"/)[1], src: match.match(/data-full-res="(.+?)"/)[1] }
