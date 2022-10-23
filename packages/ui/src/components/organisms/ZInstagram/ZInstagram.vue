@@ -10,10 +10,10 @@
       />
       <div>
         <ZText class="z-instagram__user">
-          zhp_pl
+          {{user}}
         </ZText>
         <ZButton
-          to="https://www.instagram.com/${user}/"
+          :to="`https://www.instagram.com/${user}/`"
           class="z-instagram__subscribe"
         >
           Obserwuj

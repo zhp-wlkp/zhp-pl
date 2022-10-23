@@ -465,7 +465,7 @@ export default {
     const hasInstagram = instagram.image &&
         instagram.user &&
         instagram.name &&
-        instagram.description
+        instagram.description;
     if (hasInstagram && !Object.keys(store.state.instagram.posts).length) {
       const instagramRes = await $axios.get('instagram')
       const instagram = instagramRes.data
@@ -549,7 +549,7 @@ export default {
           this.instagram.user &&
           this.instagram.name &&
           this.instagram.description &&
-          this.feed.length > 0
+          this.feed.length >= 0
     },
     hasSocial () {
       return this.social.visible && (this.hasFacebook || this.hasInstagram)
