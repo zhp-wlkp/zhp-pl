@@ -29,7 +29,7 @@ export default {
         vue$: 'vue/dist/vue.esm.js'
       }
     },
-    transpile: [/^@zhp-pl/],
+    transpile: [/^@zhp-pl/,'@glidejs'],
     publicPath: '/wp-content/themes/zhp-pl/_nuxt'
   },
   publicRuntimeConfig: {},
@@ -59,7 +59,7 @@ export default {
       sortRoutes(routes)
     }
   },
-  ssr: process.env.SSR,
+  ssr: process.env.SSR == 'true',
   generate: {
     exclude: [/^\/.+/],
     subFolders: false,
