@@ -1,4 +1,4 @@
-eFROM node:16.17.1-alpine3.15 as build
+FROM node:16.17.1-alpine3.15 as build
 
 ARG THEME_VERSION=latest
 ENV THEME_VERSION=$THEME_VERSION
