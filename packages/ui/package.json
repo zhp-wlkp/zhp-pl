@@ -3,7 +3,7 @@
   "version": "0.2.4",
   "scripts": {
     "create-index": "node scripts/create-index-file.js",
-    "version": "yarn create-index",
+    "version": "npm run create-index",
     "lint:js": "vue-cli-service lint --fix",
     "lint:scss": "stylelint 'src/**/*.{vue,htm,html,css,sss,less,scss}' --fix"
   },
