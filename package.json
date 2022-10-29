@@ -11,8 +11,8 @@
     "uppercamelcase": "^3.0.0"
   },
   "scripts": {
-    "create-component": "node ./scripts/create-component.js && cd packages/ui && yarn create-index",
-    "create-index": "cd packages/ui && yarn create-index",
+    "create-component": "node ./scripts/create-component.js && cd packages/ui && npm run create-index",
+    "create-index": "cd packages/ui && npm run create-index",
     "nuxt:dev": "cd packages/app && yarn dev",
     "nuxt:build": "cd packages/app && yarn build",
     "nuxt:start": "cd packages/app && yarn start"
