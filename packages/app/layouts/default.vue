@@ -550,7 +550,7 @@ export default {
   left: 0;
 }
 
-<!-- dodanie definicji kolumn ania-->
+/*dodanie definicji kolumn ania*/
 
 @media (min-width: 1140px) {
   .wp-block-columns.has-2-columns, wp-container-3 {
