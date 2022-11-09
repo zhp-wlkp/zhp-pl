@@ -553,14 +553,14 @@ export default {
 <!-- dodanie definicji kolumn ania-->
 
 @media (min-width: 1140px) {
-  .wp-block-columns.has-2-columns {
+  .wp-block-columns.has-2-columns, wp-container-3 {
     display: block;
     column-count: 2;
     column-gap: 30px;
     }
 }
 @media (min-width: 1140px) {
-  .wp-block-columns.has-3-columns {
+  .wp-block-columns.has-3-columns, wp-container-3 {
     display: block;
     column-count: 3;
     column-gap: 15px;
