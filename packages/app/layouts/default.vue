@@ -554,14 +554,14 @@ export default {
 
 @media (min-width: 1140px) {
   .wp-block-columns.has-2-columns, .wp-container-2 {
-    display: block;
+    display: flex;
     column-count: 2;
     column-gap: 30px;
     }
 }
 @media (min-width: 1140px) {
   .wp-block-columns.has-3-columns, .wp-container-3 {
-    display: block;
+    display: flex;
     column-count: 3;
     column-gap: 15px;
   }
