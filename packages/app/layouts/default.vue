@@ -549,4 +549,21 @@ export default {
   bottom: 0;
   left: 0;
 }
+
+<!-- dodanie definicji kolumn ania-->
+
+@media (min-width: 1140px) {
+  .wp-block-columns.has-2-columns {
+    display: block;
+    column-count: 2;
+    column-gap: 30px;
+    }
+}
+@media (min-width: 1140px) {
+  .wp-block-columns.has-3-columns {
+    display: block;
+    column-count: 3;
+    column-gap: 15px;
+  }
+}
 </style>
