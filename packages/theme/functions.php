@@ -209,7 +209,7 @@ function register_rest_media()
 };
 function get_rest_media($object, $field_name, $request)
 {
-    if($object['featured_media']) {
+    if(array_key_exists('featured_media',$object) && $object['featured_media']) {
         $media = wp_get_attachment_image_src($object['featured_media'], 'large')[0];
         return $media;
     }
@@ -230,7 +230,7 @@ function register_rest_author()
 };
 function get_rest_author($object, $field_name, $request)
 {
-    if($object['author']) {
+    if(array_key_exists('author',$object) && $object['author']) {
         $author = (object) array(
             'name' => get_the_author_meta('display_name', $object['author']),
             'href'=> get_author_posts_url($object['author']),
