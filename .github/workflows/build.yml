@@ -2,9 +2,9 @@ name: Build theme for WP sites
 
 on: 
   push:
-    branches: [theme]
+    branches: [theme, wlkp-prod]
   pull_request:
-    branches: [theme]
+    branches: [theme, wlkp-prod]
   workflow_dispatch:
 
 permissions:
