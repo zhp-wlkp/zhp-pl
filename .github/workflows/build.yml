@@ -64,7 +64,7 @@ jobs:
       - name: Create details.json
         run: |
           echo "{ \"version\": \"$VERSION\", \"details_url\": \"${{ steps.create_release.outputs.html_url }}\",\"download_url\":\"${{ steps.upload-theme.outputs.browser_download_url }}\"  }" > details.json
-        if: success() && github.ref == 'refs/heads/theme'
+        if: success()
 
       - name: Upload release details
         id: upload-details
